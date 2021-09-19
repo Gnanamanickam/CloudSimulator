@@ -9,7 +9,7 @@ val sfl4sVersion = "2.0.0-alpha5"
 val typesafeConfigVersion = "1.4.1"
 val apacheCommonIOVersion = "2.11.0"
 val scalacticVersion = "3.2.9"
-val cloudSimPlusVersion = "6.4.3"
+val cloudSimPlusVersion = "6.5.2"
 
 resolvers += Resolver.jcenterRepo
 
