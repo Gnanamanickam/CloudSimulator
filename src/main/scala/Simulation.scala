@@ -1,5 +1,5 @@
-import HelperUtils.{CreateLogger, ObtainConfigReference}
-import Simulations.BasicCloudSimPlusExample
+import Utils.{CreateLogger, ObtainConfigReference}
+import Simulations.{CloudletShedulerSpaceShared, CloudletShedulerTimeShared, LinuxCompletelyFairScheduler, SharingHostPEsUsingVmSchedulerSpaceShared, SharingHostPEsUsingVmSchedulerTimeShared, TwoCloudletsAndOneSpaceSharedVm, TwoCloudletsAndOneTimeSharedVm, VmSchedulerTimeShared}
 import com.typesafe.config.ConfigFactory
 import org.slf4j.LoggerFactory
 
@@ -8,7 +8,7 @@ object Simulation:
 
   @main def runSimulation =
     logger.info("Constructing a cloud model...")
-    BasicCloudSimPlusExample.Start()
+    SharingHostPEsUsingVmSchedulerSpaceShared.Start()
     logger.info("Finished cloud simulation...")
 
 class Simulation
