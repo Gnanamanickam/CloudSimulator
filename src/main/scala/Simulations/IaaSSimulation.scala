@@ -6,6 +6,9 @@ import org.cloudbus.cloudsim.network.topologies.NetworkTopology
 import org.cloudbus.cloudsim.network.DelayMatrix
 import org.cloudbus.cloudsim.network.topologies.readers.TopologyReaderBrite
 
+import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyRoundRobin
+
+
 class IaaSSimulation {
 
   object IaaSSimulation :

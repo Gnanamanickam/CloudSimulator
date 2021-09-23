@@ -41,7 +41,7 @@ object CloudletShedulerTimeShared:
   def Start() =
     val simulation = new CloudSim()
     val cloudletScheduler = new CloudletSchedulerTimeShared()
-    val datacenter0: Datacenter = CloudSimUtils.createDatacenter("simulation1", simulation, false)
+    val datacenter0: Datacenter = CloudSimUtils.createDatacenter("simulation1", simulation, false, new VmAllocationPolicySimple)
     val broker0: DatacenterBroker = new DatacenterBrokerSimple(simulation)
     val vmList: List[Vm] = CloudSimUtils.createVirtualMachine("simulation1", cloudletScheduler)
     val cloudletList: List[Cloudlet] = CloudSimUtils.createCloudlets("simulation1", true)

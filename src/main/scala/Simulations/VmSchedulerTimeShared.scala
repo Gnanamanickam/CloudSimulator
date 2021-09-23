@@ -2,7 +2,7 @@ package Simulations
 
 import Simulations.VmSchedulerTimeShared.{config, logger}
 import Utils.{CloudSimUtils, CreateLogger, ObtainConfigReference}
-import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicyFirstFit
+import org.cloudbus.cloudsim.allocationpolicies.{VmAllocationPolicyFirstFit, VmAllocationPolicySimple}
 import org.cloudbus.cloudsim.brokers.DatacenterBroker
 import org.cloudbus.cloudsim.brokers.DatacenterBrokerSimple
 import org.cloudbus.cloudsim.cloudlets.Cloudlet
@@ -39,7 +39,7 @@ object VmSchedulerTimeShared:
 
     val simulation = new CloudSim()
     val cloudletScheduler = new CloudletSchedulerSpaceShared()
-    val datacenter0: Datacenter = CloudSimUtils.createDatacenter("simulation7", simulation, false)
+    val datacenter0: Datacenter = CloudSimUtils.createDatacenter("simulation7", simulation, false, new VmAllocationPolicySimple)
     datacenter0.setSchedulingInterval(config.getLong("cloudSimulator.simulation7.scheduleInterval"))
     val hostList = datacenter0.getHostList
     val broker0: DatacenterBroker = new DatacenterBrokerSimple(simulation)
