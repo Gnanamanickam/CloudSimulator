@@ -5,16 +5,20 @@ import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicySimple
 import org.cloudbus.cloudsim.brokers.DatacenterBroker
 import org.cloudbus.cloudsim.cloudlets.{Cloudlet, CloudletSimple}
 import org.cloudbus.cloudsim.core.CloudSim
+import org.cloudbus.cloudsim.datacenters.network.NetworkDatacenter
 import org.cloudbus.cloudsim.datacenters.{Datacenter, DatacenterSimple}
 import org.cloudbus.cloudsim.hosts.{Host, HostSimple}
+import org.cloudbus.cloudsim.network.topologies.BriteNetworkTopology
 import org.cloudbus.cloudsim.provisioners.{PeProvisionerSimple, ResourceProvisioner, ResourceProvisionerSimple}
 import org.cloudbus.cloudsim.resources.{Pe, PeSimple}
 import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletScheduler
 import org.cloudbus.cloudsim.schedulers.vm.{VmScheduler, VmSchedulerTimeShared}
+import org.cloudbus.cloudsim.util.ResourceLoader
 import org.cloudbus.cloudsim.utilizationmodels.{UtilizationModel, UtilizationModelDynamic, UtilizationModelFull}
 import org.cloudbus.cloudsim.vms.{Vm, VmSimple}
 import org.slf4j.LoggerFactory
 
+import java.io.InputStreamReader
 import java.text.DecimalFormat
 import scala.jdk.CollectionConverters.{BufferHasAsJava, CollectionHasAsScala}
 import java.util
@@ -90,6 +94,38 @@ object CloudSimUtils {
   }
 
   /**
+   * Method to create Network DataCenter based on the given configuration
+   *
+   * @param simulationName The simulation for which VM has to be created based on the given config
+   * @param cloudSim       sends and processes all discrete events during the simulation time.
+   * @param Cost           Boolean value which returns true if the cost parameters are involved in creation
+   * @return Returns the generated Network Datacenter
+   */
+
+
+  def createNetworkDatacenter(simulationName: String, cloudSim: CloudSim, Cost: Boolean): Datacenter = {
+    logger.info("Creating Network DataCenter")
+    val hostNumber = config.getInt("cloudSimulator." + simulationName + ".Hosts")
+    val hostList = new util.ArrayList[Host](hostNumber)
+
+    (1 to hostNumber).map(hostNum => hostList.add(createHost(simulationName)))
+    val networkdataCenter: Datacenter = new NetworkDatacenter(cloudSim, hostList, new VmAllocationPolicySimple)
+    if (Cost) {
+      logger.info("Set Network DataCenter Characteristics")
+      networkdataCenter.getCharacteristics
+        .setArchitecture(config.getString("architecture"))
+        .setOs(config.getString("os"))
+        .setVmm(config.getString("vmm"))
+        .setCostPerBw(config.getDouble("costPerBw"))
+        .setCostPerStorage(config.getDouble("costPerStorage"))
+        .setCostPerMem(config.getDouble("costPerMem"))
+        .setCostPerSecond(config.getDouble("costPerSec"))
+    }
+
+    return networkdataCenter
+  }
+
+  /**
    * Method to create HOST based on the given configuration
    *
    * @param simulationName The simulation for which VM has to be created based on the given config
@@ -147,6 +183,20 @@ object CloudSimUtils {
   }
 
   /**
+   *    To map the CloudSim entities to BRITE entities
+   *    @param topology Topology whose instance needs to be fetched from BriteNetwork
+   *    @param Datacenter Datacenter to be passed inside the network topology
+   */
+
+  def networkConfiguration(topology: String, cloudSim: CloudSim, datacenter: Datacenter, datacenterBroker: DatacenterBroker): Unit ={
+    val networkTopology = BriteNetworkTopology.getInstance(topology)
+    cloudSim.setNetworkTopology(networkTopology)
+    networkTopology.mapNode(datacenter, 0)
+    networkTopology.mapNode(datacenterBroker, 2)
+  }
+
+
+  /**
    * Calculate the total cost of the broker execution
    *
    * @param broker Broker whose cost we want to calculate
@@ -155,10 +205,14 @@ object CloudSimUtils {
 
     val cloudletList = broker.getCloudletFinishedList.asInstanceOf[java.util.List[Cloudlet]].asScala
     logger.info("Calculating Cost")
-    var totalCost: Double = 0
+    var totalCost = 0 // To add values based on the cloudletList : var
     cloudletList.map { (cloudlet: Cloudlet) =>
-      totalCost += cloudlet.getTotalCost
+      totalCost = totalCost + cloudlet.getTotalCost.toInt
+      //    if(cloudlet.isFinished){
+      //      totalCost +=  cloudlet.getCostPerSec() * cloudlet.getActualCpuTime() * cloudlet.getCostPerBw()
+      //    }
     }
+
     logger.info("Total cost fo running all the task: " + totalCost)
     totalCost
   }

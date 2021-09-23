@@ -8,7 +8,7 @@ object Simulation:
 
   @main def runSimulation =
     logger.info("Constructing a cloud model...")
-    SharingHostPEsUsingVmSchedulerSpaceShared.Start()
+    TwoCloudletsAndOneSpaceSharedVm.Start()
     logger.info("Finished cloud simulation...")
 
 class Simulation

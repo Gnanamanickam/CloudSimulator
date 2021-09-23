@@ -37,6 +37,7 @@ class TwoCloudletsAndOneSpaceSharedVm
 
      def Start() =
       val simulation = new CloudSim()
+      val topology = "topology.brite"
       val cloudletScheduler = new CloudletSchedulerSpaceShared()
       val datacenter0: Datacenter = CloudSimUtils.createDatacenter("simulation3", simulation, false)
       val broker0: DatacenterBroker = new DatacenterBrokerSimple(simulation)
@@ -44,6 +45,8 @@ class TwoCloudletsAndOneSpaceSharedVm
       val cloudletList: List[Cloudlet] = CloudSimUtils.createCloudlets("simulation3", false)
       broker0.submitVmList(vmList.asJava)
       broker0.submitCloudletList(cloudletList.asJava)
+      // Netwotk Topology implementation
+      CloudSimUtils.networkConfiguration(topology, simulation, datacenter0, broker0)
       simulation.start()
       val finishedCloudlets: List[Cloudlet] = broker0.getCloudletFinishedList().asScala.toList
       new CloudletsTableBuilder(finishedCloudlets.asJava).build()
