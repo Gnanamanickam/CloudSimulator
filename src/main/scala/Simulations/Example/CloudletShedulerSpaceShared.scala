@@ -1,32 +1,23 @@
-package Simulations
+package Simulations.Example
 
-import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicySimple
-import org.cloudbus.cloudsim.brokers.DatacenterBroker
-import org.cloudbus.cloudsim.brokers.DatacenterBrokerSimple
-import org.cloudbus.cloudsim.cloudlets.Cloudlet
-import org.cloudbus.cloudsim.cloudlets.CloudletSimple
-import org.cloudbus.cloudsim.core.CloudSim
-import org.cloudbus.cloudsim.datacenters.Datacenter
-import org.cloudbus.cloudsim.datacenters.DatacenterSimple
-import org.cloudbus.cloudsim.hosts.Host
-import org.cloudbus.cloudsim.hosts.HostSimple
-import org.cloudbus.cloudsim.provisioners.PeProvisionerSimple
-import org.cloudbus.cloudsim.provisioners.ResourceProvisioner
-import org.cloudbus.cloudsim.provisioners.ResourceProvisionerSimple
-import org.cloudbus.cloudsim.resources.Pe
-import org.cloudbus.cloudsim.resources.PeSimple
-import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared
-import org.cloudbus.cloudsim.schedulers.vm.VmScheduler
-import org.cloudbus.cloudsim.schedulers.vm.VmSchedulerTimeShared
-import org.cloudbus.cloudsim.utilizationmodels.UtilizationModel
-import org.cloudbus.cloudsim.utilizationmodels.UtilizationModelFull
-import org.cloudbus.cloudsim.vms.Vm
-import org.cloudbus.cloudsim.vms.VmSimple
-import org.cloudsimplus.builders.tables.CloudletsTableBuilder
+import Simulations.Example.CloudletShedulerSpaceShared
 import Utils.{CloudSimUtils, CreateLogger, ObtainConfigReference}
+import org.cloudbus.cloudsim.allocationpolicies.VmAllocationPolicySimple
+import org.cloudbus.cloudsim.brokers.{DatacenterBroker, DatacenterBrokerSimple}
+import org.cloudbus.cloudsim.cloudlets.{Cloudlet, CloudletSimple}
+import org.cloudbus.cloudsim.core.CloudSim
+import org.cloudbus.cloudsim.datacenters.{Datacenter, DatacenterSimple}
+import org.cloudbus.cloudsim.hosts.{Host, HostSimple}
+import org.cloudbus.cloudsim.provisioners.{PeProvisionerSimple, ResourceProvisioner, ResourceProvisionerSimple}
+import org.cloudbus.cloudsim.resources.{Pe, PeSimple}
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared
+import org.cloudbus.cloudsim.schedulers.vm.{VmScheduler, VmSchedulerTimeShared}
+import org.cloudbus.cloudsim.utilizationmodels.{UtilizationModel, UtilizationModelFull}
+import org.cloudbus.cloudsim.vms.{Vm, VmSimple}
+import org.cloudsimplus.builders.tables.CloudletsTableBuilder
 
 import java.util
-import scala.collection.JavaConverters._
+import scala.collection.JavaConverters.*
 
 class CloudletShedulerSpaceShared
 

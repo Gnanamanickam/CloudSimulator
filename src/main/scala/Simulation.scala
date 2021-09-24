@@ -1,6 +1,6 @@
 import Simulations.Simulations.PaaSSimulation2
 import Utils.{CreateLogger, ObtainConfigReference}
-import Simulations.{CloudletShedulerSpaceShared, CloudletShedulerTimeShared, FirstFitWithTimeScheduledSimulation, IaaSSimulation, LinuxCompletelyFairScheduler, PaaSSimulation1, RoundRobinWithSpaceScheduledSimulation, SaaSSimulation, SharingHostPEsUsingVmSchedulerSpaceShared, SharingHostPEsUsingVmSchedulerTimeShared, TwoCloudletsAndOneSpaceSharedVm, TwoCloudletsAndOneTimeSharedVm, VmSchedulerTimeShared}
+import Simulations.{FirstFitWithTimeScheduledSimulation, IaaSSimulation, PaaSSimulation1, RoundRobinWithSpaceScheduledSimulation, SaaSSimulation}
 import com.typesafe.config.ConfigFactory
 import org.cloudbus.cloudsim.core.Simulation
 import org.slf4j.LoggerFactory
@@ -14,9 +14,9 @@ object Simulation:
     // Uncomment the one which you want to execute
 
 
-    IaaSSimulation.Start()
+//    IaaSSimulation.Start()
 //    PaaSSimulation1.Start()
-//    PaaSSimulation2.Start()
+    PaaSSimulation2.Start()
 //    RoundRobinWithSpaceScheduledSimulation.Start()
 //    FirstFitWithTimeScheduledSimulation.Start()
 //    SaaSSimulation.Start()

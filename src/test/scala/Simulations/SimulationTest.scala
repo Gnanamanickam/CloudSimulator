@@ -10,7 +10,8 @@ import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared
 import org.cloudbus.cloudsim.vms.Vm
 import org.scalatest.funsuite.AnyFunSuite
 import org.scalatest.matchers.should.Matchers.a
-import scala.collection.JavaConverters._
+
+import scala.collection.JavaConverters.*
 import java.util.List
 
 /**
@@ -18,7 +19,7 @@ import java.util.List
  */
 
 class SimulationTest extends AnyFunSuite {
-  val logger = CreateLogger(classOf[TwoCloudletsAndOneSpaceSharedVm])
+  val logger = CreateLogger(classOf[SimulationTest])
   test("Check simulation") {
     logger.info("Test Simulation")
     val simulation = new CloudSim()
