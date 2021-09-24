@@ -22,6 +22,7 @@ libraryDependencies ++= Seq(
   "org.scalactic" %% "scalactic" % scalacticVersion,
   "org.scalatest" %% "scalatest" % scalacticVersion % Test,
   "org.scalatest" %% "scalatest-featurespec" % scalacticVersion % Test,
+  "org.junit.jupiter" % "junit-jupiter-api" % "5.7.0" % Test,
   "com.typesafe" % "config" % typesafeConfigVersion,
   "org.cloudsimplus" % "cloudsim-plus" % cloudSimPlusVersion
 )
