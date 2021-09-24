@@ -23,7 +23,7 @@ import org.cloudbus.cloudsim.distributions.ContinuousDistribution
 import org.cloudbus.cloudsim.hosts.network.NetworkHost
 import org.cloudbus.cloudsim.network.switches.{AbstractSwitch, AggregateSwitch, EdgeSwitch, RootSwitch, Switch}
 
-import java.io.{InputStreamReader, InvalidClassException}
+import java.io.{FileWriter, InputStreamReader, InvalidClassException}
 import java.text.DecimalFormat
 import scala.jdk.CollectionConverters.{BufferHasAsJava, CollectionHasAsScala}
 import java.util
