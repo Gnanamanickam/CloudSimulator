@@ -98,13 +98,13 @@ object CloudSimUtils {
     if (Cost) {
       logger.info("Set DataCenter Characteristics")
       dataCenter.getCharacteristics
-        .setArchitecture(config.getString("architecture"))
-        .setOs(config.getString("os"))
-        .setVmm(config.getString("vmm"))
-        .setCostPerBw(config.getDouble("costPerBw"))
-        .setCostPerStorage(config.getDouble("costPerStorage"))
-        .setCostPerMem(config.getDouble("costPerMem"))
-        .setCostPerSecond(config.getDouble("costPerSec"))
+        .setArchitecture(config.getString("cloudSimulator." + simulationName + ".datacenter.architecture"))
+        .setOs(config.getString("cloudSimulator." + simulationName + ".datacenter.os"))
+        .setVmm(config.getString("cloudSimulator." + simulationName + ".datacenter.vmm"))
+        .setCostPerBw(config.getDouble("cloudSimulator." + simulationName + ".datacenter.costPerBw"))
+        .setCostPerStorage(config.getDouble("cloudSimulator." + simulationName + ".datacenter.costPerStorage"))
+        .setCostPerMem(config.getDouble("cloudSimulator." + simulationName + ".datacenter.costPerMem"))
+        .setCostPerSecond(config.getDouble("cloudSimulator." + simulationName + ".datacenter.cost"))
     }
 
     return dataCenter
@@ -130,13 +130,13 @@ object CloudSimUtils {
     if (Cost) {
       logger.info("Set Network DataCenter Characteristics")
       networkdataCenter.getCharacteristics
-        .setArchitecture(config.getString("architecture"))
-        .setOs(config.getString("os"))
-        .setVmm(config.getString("vmm"))
-        .setCostPerBw(config.getDouble("costPerBw"))
-        .setCostPerStorage(config.getDouble("costPerStorage"))
-        .setCostPerMem(config.getDouble("costPerMem"))
-        .setCostPerSecond(config.getDouble("costPerSec"))
+        .setArchitecture(config.getString("cloudSimulator." + simulationName + ".datacenter.architecture"))
+        .setOs(config.getString("cloudSimulator." + simulationName + ".datacenter.os"))
+        .setVmm(config.getString("cloudSimulator." + simulationName + ".datacenter.vmm"))
+        .setCostPerBw(config.getDouble("cloudSimulator." + simulationName + ".datacenter.costPerBw"))
+        .setCostPerStorage(config.getDouble("cloudSimulator." + simulationName + ".datacenter.costPerStorage"))
+        .setCostPerMem(config.getDouble("cloudSimulator." + simulationName + ".datacenter.costPerMem"))
+        .setCostPerSecond(config.getDouble("cloudSimulator." + simulationName + ".datacenter.cost"))
     }
 
     return networkdataCenter
