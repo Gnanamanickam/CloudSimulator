@@ -14,7 +14,7 @@ public class TableBuilder extends CloudletsTableBuilder {
     private static final String TIME_FORMAT = "%.0f";
     private static final String SECONDS = "Seconds";
     private static final String CPU_CORES = "CPU cores";
-    private static final String CURRENCY_FORMAT = "%.2f";
+    private static final String CURRENCY_FORMAT = "%.3f";
 
     public TableBuilder(List<? extends Cloudlet> list) {
         super(list);
@@ -47,16 +47,16 @@ public class TableBuilder extends CloudletsTableBuilder {
         addColumnDataFunction(col, task -> roundTime(task,task.getFinishTime()));
         col = getTable().addColumn("ExecTime", SECONDS).setFormat(TIME_FORMAT);
         addColumnDataFunction(col, task -> roundTime(task,task.getActualCpuTime()));
-        col = getTable().addColumn("RAM Utilized", "%").setFormat(CURRENCY_FORMAT);
-        addColumnDataFunction(col, task -> task.getUtilizationOfRam());
-        col = getTable().addColumn("Cost Per Sec", "$").setFormat(CURRENCY_FORMAT);
-        addColumnDataFunction(col, task -> task.getCostPerSec());
+//        col = getTable().addColumn("RAM Utilized", "%").setFormat(CURRENCY_FORMAT);
+//        addColumnDataFunction(col, task -> task.getUtilizationOfRam());
+//        col = getTable().addColumn("Cost Per Sec", "$").setFormat(CURRENCY_FORMAT);
+//        addColumnDataFunction(col, task -> task.getCostPerSec());
         col = getTable().addColumn("Cost Per Bandwidth", "$").setFormat(CURRENCY_FORMAT);
         addColumnDataFunction(col, task -> task.getCostPerBw());
         col = getTable().addColumn("Accumulated Bandwidth Cost", "$").setFormat(CURRENCY_FORMAT);
         addColumnDataFunction(col, task -> task.getAccumulatedBwCost());
-        col = getTable().addColumn("Total Cost", "$").setFormat(CURRENCY_FORMAT);
-        addColumnDataFunction(col, task -> task.getTotalCost());
+//        col = getTable().addColumn("Total Cost", "$").setFormat(CURRENCY_FORMAT);
+//        addColumnDataFunction(col, task -> task.getTotalCost());
     }
 
     /**

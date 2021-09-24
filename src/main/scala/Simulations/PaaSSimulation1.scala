@@ -47,6 +47,9 @@ object PaaSSimulation1:
     broker.submitVmList(vmList.asJava)
     broker.submitCloudletList(cloudletList.asJava)
     Thread.sleep(1000)
+    // Netwotk Topology implementation
+    val topology = "topology.brite"
+    CloudSimUtils.networkConfiguration(topology, simulation, datacenter, broker)
     logger.info("Starting the PaaSSimulation1")
     simulation.start()
 //    val finishedCloudlets: List[Cloudlet] = broker.getCloudletFinishedList().asScala.toList

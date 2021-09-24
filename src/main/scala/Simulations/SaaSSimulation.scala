@@ -22,6 +22,8 @@ The user only invokes this application and has no control over other specificati
 
 class SaaSSimulation
 
+object SaaSSimulation:
+
   val config = ObtainConfigReference("cloudSimulator") match {
     case Some(value) => value
     case None => throw new RuntimeException("Cannot obtain a reference to the config data.")
