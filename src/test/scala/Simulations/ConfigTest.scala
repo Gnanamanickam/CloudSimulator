@@ -4,6 +4,10 @@ import Utils.CloudSimUtils.config
 import org.scalatest.flatspec.AnyFlatSpec
 import org.scalatest.matchers.should.Matchers
 
+/**
+ * Test cases to check whether the config values matches or not using AnyFlatSpec
+ */
+
 class ConfigTest extends AnyFlatSpec with Matchers {
 
   val simulationName = "simulation1"
