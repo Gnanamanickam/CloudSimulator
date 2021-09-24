@@ -223,16 +223,26 @@ object CloudSimUtils {
 
     val cloudletList = broker.getCloudletFinishedList.asInstanceOf[java.util.List[Cloudlet]].asScala
     logger.info("Calculating Cost")
-    var totalCost = 0 // To add values based on the cloudletList : var
-    cloudletList.map { (cloudlet: Cloudlet) =>
-      totalCost = totalCost + cloudlet.getTotalCost.toInt
+    val list: List[Int] = cloudletList.toList.map { (cloudlet: Cloudlet) =>
+          cloudlet.getTotalCost.toInt
       //    if(cloudlet.isFinished){
       //      totalCost +=  cloudlet.getCostPerSec() * cloudlet.getActualCpuTime() * cloudlet.getCostPerBw()
       //    }
     }
 
+    val totalCost = sum(list)
+
     logger.info("Total cost fo running all the task: " + totalCost)
     totalCost
+  }
+
+  /**
+   * Recursive function to calculate sum
+   */
+
+  def sum(list: List[Int]): Int = list match {
+    case Nil => 0
+    case x :: xs => x + sum(xs)
   }
 
   /**
