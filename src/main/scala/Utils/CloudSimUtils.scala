@@ -183,11 +183,10 @@ object CloudSimUtils {
   def createCloudlets(simulationName: String, utilizationDynamic: Boolean): List[Cloudlet] = {
     logger.info("Creating Cloudlets")
     val hostCloudlets = config.getInt("cloudSimulator." + simulationName + ".cloudlet.HostCloudlets")
-    var utilization: UtilizationModel  = null // Used var to dynamically set the values .
-    if(utilizationDynamic == true)
-      utilization = new UtilizationModelDynamic(config.getInt("cloudSimulator." + simulationName + ".cloudlet.utilizationPercent"))
+    val utilization: UtilizationModel  = if(utilizationDynamic == true)
+      new UtilizationModelDynamic(config.getInt("cloudSimulator." + simulationName + ".cloudlet.utilizationPercent"))
     else
-      utilization = new UtilizationModelFull
+      new UtilizationModelFull
     val Cloudlet_Length = config.getInt("cloudSimulator." + simulationName + ".cloudlet.cloudletLength")
     val Cloudlet_PES = config.getInt("cloudSimulator." + simulationName + ".cloudlet.Pes")
     val list = (1 to hostCloudlets).toList.map(hostCloudlet =>
