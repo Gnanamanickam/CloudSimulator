@@ -2,7 +2,7 @@ package Simulations
 
 package Simulations
 
-import Utils.{CloudSimUtils, CreateLogger, ObtainConfigReference}
+import Utils.{CloudSimUtils, CreateLogger, ObtainConfigReference, TableBuilder}
 import org.cloudbus.cloudsim.allocationpolicies.{VmAllocationPolicyBestFit, VmAllocationPolicyFirstFit}
 import org.cloudbus.cloudsim.brokers.{DatacenterBroker, DatacenterBrokerSimple}
 import org.cloudbus.cloudsim.cloudlets.Cloudlet
@@ -51,5 +51,6 @@ object PaaSSimulation2:
     Thread.sleep(1000)
     logger.info("Starting the PaaSSimulation1")
     simulation.start()
-    val finishedCloudlets: List[Cloudlet] = broker.getCloudletFinishedList().asScala.toList
-    new CloudletsTableBuilder(finishedCloudlets.asJava).build()
+//    val finishedCloudlets: List[Cloudlet] = broker.getCloudletFinishedList().asScala.toList
+    val finishedCloudlets = broker.getCloudletFinishedList()
+    new TableBuilder(finishedCloudlets).build()
