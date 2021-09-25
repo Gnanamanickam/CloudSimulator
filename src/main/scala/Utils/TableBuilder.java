@@ -47,16 +47,14 @@ public class TableBuilder extends CloudletsTableBuilder {
         addColumnDataFunction(col, task -> roundTime(task,task.getFinishTime()));
         col = getTable().addColumn("ExecTime", SECONDS).setFormat(TIME_FORMAT);
         addColumnDataFunction(col, task -> roundTime(task,task.getActualCpuTime()));
-//        col = getTable().addColumn("RAM Utilized", "%").setFormat(CURRENCY_FORMAT);
-//        addColumnDataFunction(col, task -> task.getUtilizationOfRam());
-//        col = getTable().addColumn("Cost Per Sec", "$").setFormat(CURRENCY_FORMAT);
-//        addColumnDataFunction(col, task -> task.getCostPerSec());
+        col = getTable().addColumn("Cost Per Sec", "$").setFormat(CURRENCY_FORMAT);
+        addColumnDataFunction(col, task -> task.getCostPerSec());
         col = getTable().addColumn("Cost Per Bandwidth", "$").setFormat(CURRENCY_FORMAT);
         addColumnDataFunction(col, task -> task.getCostPerBw());
         col = getTable().addColumn("Accumulated Bandwidth Cost", "$").setFormat(CURRENCY_FORMAT);
         addColumnDataFunction(col, task -> task.getAccumulatedBwCost());
-//        col = getTable().addColumn("Total Cost", "$").setFormat(CURRENCY_FORMAT);
-//        addColumnDataFunction(col, task -> task.getTotalCost());
+        col = getTable().addColumn("Total Cost", "$").setFormat(CURRENCY_FORMAT);
+        addColumnDataFunction(col, task -> task.getTotalCost());
     }
 
     /**

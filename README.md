@@ -138,21 +138,21 @@ The cloudlet acts as the software application/web service that the user wants to
       costPerStorage = 1.5
       costPerBw = 0.5
 
-                                                                SIMULATION RESULTS
+                                                                            SIMULATION RESULTS
 
-|Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime|Cost Per Bandwidth|Accumulated Bandwidth Cost
-|--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------|------------------|--------------------------
-|      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds|                 $|                         $
-|       1|SUCCESS| 1|   0|        6| 0|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
-|       2|SUCCESS| 1|   1|        6| 1|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
-|       3|SUCCESS| 1|   2|        6| 2|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
-|       4|SUCCESS| 1|   3|        6| 3|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
-|       5|SUCCESS| 1|   4|        6| 4|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
-|       6|SUCCESS| 1|   5|        6| 5|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
-|       7|SUCCESS| 1|   6|        6| 6|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
-|       8|SUCCESS| 1|   7|        6| 7|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
-|       9|SUCCESS| 1|   0|        6| 0|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
-|      10|SUCCESS| 1|   1|        6| 1|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+|Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime|Cost Per Sec|Cost Per Bandwidth|Accumulated Bandwidth Cost|Total Cost
+|--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------|------------|------------------|--------------------------|----------
+|      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds|           $|                 $|                         $|         $
+|       1|SUCCESS| 1|   0|        6| 0|        4|      10000|          2|        3|        53|      50|       0.050|             0.500|                   150.000|   302.506
+|       2|SUCCESS| 1|   1|        6| 1|        4|      10000|          2|        3|        53|      50|       0.050|             0.500|                   150.000|   302.506
+|       3|SUCCESS| 1|   2|        6| 2|        4|      10000|          2|        3|        53|      50|       0.050|             0.500|                   150.000|   302.506
+|       4|SUCCESS| 1|   3|        6| 3|        4|      10000|          2|        3|        53|      50|       0.050|             0.500|                   150.000|   302.506
+|       5|SUCCESS| 1|   4|        6| 4|        4|      10000|          2|        3|        53|      50|       0.050|             0.500|                   150.000|   302.506
+|       6|SUCCESS| 1|   5|        6| 5|        4|      10000|          2|        3|        53|      50|       0.050|             0.500|                   150.000|   302.506
+|       7|SUCCESS| 1|   6|        6| 6|        4|      10000|          2|        3|        53|      50|       0.050|             0.500|                   150.000|   302.506
+|       8|SUCCESS| 1|   7|        6| 7|        4|      10000|          2|        3|        53|      50|       0.050|             0.500|                   150.000|   302.506
+|       9|SUCCESS| 1|   0|        6| 0|        4|      10000|          2|        3|        53|      50|       0.050|             0.500|                   150.000|   302.506
+|      10|SUCCESS| 1|   1|        6| 1|        4|      10000|          2|        3|        53|      50|       0.050|             0.500|                   150.000|   302.506
 
 
 
@@ -166,21 +166,21 @@ The cloudlet acts as the software application/web service that the user wants to
       costPerStorage = 2.0
       costPerBw = 0.6
 
-                                                                SIMULATION RESULTS
+                                                                            SIMULATION RESULTS
 
-|Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime|Cost Per Bandwidth|Accumulated Bandwidth Cost
-|--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------|------------------|--------------------------
-|      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds|                 $|                         $
-|       1|SUCCESS| 1|   0|        6| 0|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
-|       2|SUCCESS| 1|   1|        6| 1|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
-|       3|SUCCESS| 1|   2|        6| 2|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
-|       4|SUCCESS| 1|   3|        6| 3|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
-|       5|SUCCESS| 1|   4|        6| 4|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
-|       6|SUCCESS| 1|   5|        6| 5|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
-|       7|SUCCESS| 1|   6|        6| 6|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
-|       8|SUCCESS| 1|   7|        6| 7|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
-|       9|SUCCESS| 1|   0|        6| 0|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
-|      10|SUCCESS| 1|   1|        6| 1|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+|Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime|Cost Per Sec|Cost Per Bandwidth|Accumulated Bandwidth Cost|Total Cost
+|--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------|------------|------------------|--------------------------|----------
+|      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds|           $|                 $|                         $|         $
+|       1|SUCCESS| 1|   0|        6| 0|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
+|       2|SUCCESS| 1|   1|        6| 1|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
+|       3|SUCCESS| 1|   2|        6| 2|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
+|       4|SUCCESS| 1|   3|        6| 3|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
+|       5|SUCCESS| 1|   4|        6| 4|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
+|       6|SUCCESS| 1|   5|        6| 5|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
+|       7|SUCCESS| 1|   6|        6| 6|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
+|       8|SUCCESS| 1|   7|        6| 7|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
+|       9|SUCCESS| 1|   0|        6| 0|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
+|      10|SUCCESS| 1|   1|        6| 1|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
 
 
 

@@ -16,9 +16,9 @@ object Simulation:
 
 //    IaaSSimulation.Start()
 //    PaaSSimulation1.Start()
-//    PaaSSimulation2.Start()
+    PaaSSimulation2.Start()
 //    RoundRobinWithSpaceScheduledSimulation.Start()
-    BestFitWithTimeScheduledSimulation.Start()
+//    BestFitWithTimeScheduledSimulation.Start()
 //    SaaSSimulation.Start()
 
 
