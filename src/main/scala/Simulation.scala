@@ -11,27 +11,24 @@ object Simulation:
   @main def runSimulation =
     logger.info("Constructing a cloud model...")
 
-    // Uncomment the one which you want to execute
 
+     println("Press the number to run the simulation")
+    printf("1.IaaSSimulation %n" +
+      "2.PaaSSimulation1 %n" +
+      "3.PaaSSimulation2 %n" +
+      "4.RoundRobinWithSpaceScheduledSimulation %n" +
+      "5.BestFitWithTimeScheduledSimulation %n" +
+      "6.SaaSSimulation %n")
 
-//    IaaSSimulation.Start()
-//    PaaSSimulation1.Start()
-    PaaSSimulation2.Start()
-//    RoundRobinWithSpaceScheduledSimulation.Start()
-//    BestFitWithTimeScheduledSimulation.Start()
-//    SaaSSimulation.Start()
-
-
-//     println("Choose a simulation to run")
-//    val a = scala.io.StdIn.readInt()
-//    a match {
-//      case 1 => new IaaSSimulation
-//      case 2 => new PaaSSimulation1
-//      case 3 => new PaaSSimulation2
-//      case 4 => new RoundRobinWithSpaceScheduledSimulation
-//      case 5 => new BestFitWithTimeScheduledSimulation
-//      case 6 => new SaaSSimulation
-//    }
+    val a = scala.io.StdIn.readInt()
+    a match {
+      case 1 => IaaSSimulation.Start()
+      case 2 => PaaSSimulation1.Start()
+      case 3 => PaaSSimulation2.Start()
+      case 4 => RoundRobinWithSpaceScheduledSimulation.Start()
+      case 5 => BestFitWithTimeScheduledSimulation.Start()
+      case 6 => SaaSSimulation.Start()
+    }
 
     logger.info("Finished cloud simulation...")
 
