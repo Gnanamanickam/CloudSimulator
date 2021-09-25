@@ -182,7 +182,7 @@ The cloudlet acts as the software application/web service that the user wants to
 |       9|SUCCESS| 1|   0|        6| 0|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
 |      10|SUCCESS| 1|   1|        6| 1|        4|       1000|          2|        3|         8|       5|       0.500|             0.600|                   180.000|   362.500
 
-
+The total cost of executing one cloudlet in PaaS simulation 1 is 302 dollars which that of simulation 2 is 362 dollars approx for the same set of cloud environment . Thus second simulation should be preferred by the user .
 
 #### SaaS Simulation
 

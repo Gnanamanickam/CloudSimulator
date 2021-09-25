@@ -53,6 +53,6 @@ object PaaSSimulation1:
     logger.info("Starting the PaaSSimulation1")
     simulation.start()
 //    val finishedCloudlets: List[Cloudlet] = broker.getCloudletFinishedList().asScala.toList
-//    CloudSimUtils.calculateCost(broker)
+    System.out.println(CloudSimUtils.calculateCost(broker))
     val finishedCloudlets = broker.getCloudletFinishedList()
     new TableBuilder(finishedCloudlets).build()
