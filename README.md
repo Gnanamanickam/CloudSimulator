@@ -114,6 +114,118 @@ The capacity and technical capabilities of the datacenter has been changed with 
 
 
 #### PaaS Simulation
+
+***PaaS one simulation with datacenter characteristics as follows :***
+
+      architecture = "x86"
+      os = "Linux"
+      vmm = "Xen"
+      cost = 0.05
+      costPerMem = 2.05
+      costPerStorage = 1.5
+      costPerBw = 0.5
+
+                                                                SIMULATION RESULTS
+
+|Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime|Cost Per Bandwidth|Accumulated Bandwidth Cost
+|--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------|------------------|--------------------------
+|      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds|                 $|                         $
+|       1|SUCCESS| 1|   0|        6| 0|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+|       2|SUCCESS| 1|   1|        6| 1|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+|       3|SUCCESS| 1|   2|        6| 2|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+|       4|SUCCESS| 1|   3|        6| 3|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+|       5|SUCCESS| 1|   4|        6| 4|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+|       6|SUCCESS| 1|   5|        6| 5|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+|       7|SUCCESS| 1|   6|        6| 6|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+|       8|SUCCESS| 1|   7|        6| 7|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+|       9|SUCCESS| 1|   0|        6| 0|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+|      10|SUCCESS| 1|   1|        6| 1|        4|      10000|          2|        3|        53|      50|             0.500|                   150.000
+
+
+
+***PaaS two simulation with datacenter characteristics as follows :***
+
+      architecture = "x86"
+      os = "mac"
+      vmm = "Xen"
+      cost = 0.5
+      costPerMem = 3.35
+      costPerStorage = 2.0
+      costPerBw = 0.6
+
+                                                                SIMULATION RESULTS
+
+|Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime|Cost Per Bandwidth|Accumulated Bandwidth Cost
+|--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------|------------------|--------------------------
+|      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds|                 $|                         $
+|       1|SUCCESS| 1|   0|        6| 0|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+|       2|SUCCESS| 1|   1|        6| 1|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+|       3|SUCCESS| 1|   2|        6| 2|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+|       4|SUCCESS| 1|   3|        6| 3|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+|       5|SUCCESS| 1|   4|        6| 4|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+|       6|SUCCESS| 1|   5|        6| 5|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+|       7|SUCCESS| 1|   6|        6| 6|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+|       8|SUCCESS| 1|   7|        6| 7|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+|       9|SUCCESS| 1|   0|        6| 0|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+|      10|SUCCESS| 1|   1|        6| 1|        4|       1000|          2|        3|         8|       5|             0.600|                   180.000
+
+
+
 #### SaaS Simulation
+
+                                         SIMULATION RESULTS
+
+|Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime
+|--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------
+|      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds
+|       1|SUCCESS| 1|   0|        2| 0|        2|       1000|          2|        0|         0|       0
+|       2|SUCCESS| 1|   0|        2| 1|        2|       1000|          2|        0|         1|       0
+|       3|SUCCESS| 1|   0|        2| 2|        2|       1000|          2|        1|         1|       0
+|       4|SUCCESS| 1|   0|        2| 3|        2|       1000|          2|        1|         2|       0
+|       5|SUCCESS| 1|   1|        2| 4|        2|       1000|          2|        2|         2|       0
+|       6|SUCCESS| 1|   1|        2| 5|        2|       1000|          2|        2|         2|       0
+|       7|SUCCESS| 1|   1|        2| 6|        2|       1000|          2|        2|         3|       0
+|       8|SUCCESS| 1|   1|        2| 7|        2|       1000|          2|        3|         3|       0
+|       9|SUCCESS| 1|   2|        2| 8|        2|       1000|          2|        3|         4|       0
+|      10|SUCCESS| 1|   2|        2| 9|        2|       1000|          2|        4|         4|       0
 #### Round Robin with Space Shared Simulation
+
+                                         SIMULATION RESULTS
+
+|Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime
+|--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------
+|      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds
+|       1|SUCCESS| 1|   0|        6| 0|        2|       1000|          2|        0|         1|       1
+|       2|SUCCESS| 1|   1|        6| 1|        2|       1000|          2|        1|         2|       1
+|       3|SUCCESS| 1|   2|        6| 2|        2|       1000|          2|        2|         3|       1
+|       4|SUCCESS| 1|   3|        6| 3|        2|       1000|          2|        3|         4|       1
+|       5|SUCCESS| 1|   4|        6| 4|        2|       1000|          2|        4|         5|       1
+|       6|SUCCESS| 1|   5|        6| 5|        2|       1000|          2|        6|         6|       1
+|       7|SUCCESS| 1|   6|        6| 6|        2|       1000|          2|        7|         7|       1
+|       8|SUCCESS| 1|   7|        6| 7|        2|       1000|          2|        8|         8|       1
+|       9|SUCCESS| 1|   0|        6| 0|        2|       1000|          2|        9|         9|       1
+|      10|SUCCESS| 1|   1|        6| 1|        2|       1000|          2|       10|        10|       1
+|      11|SUCCESS| 1|   2|        6| 2|        2|       1000|          2|       11|        12|       1
+|      12|SUCCESS| 1|   3|        6| 3|        2|       1000|          2|       12|        13|       1
+|      13|SUCCESS| 1|   4|        6| 4|        2|       1000|          2|       13|        14|       1
+|      14|SUCCESS| 1|   5|        6| 5|        2|       1000|          2|       14|        15|       1
+|      15|SUCCESS| 1|   6|        6| 6|        2|       1000|          2|       15|        16|       1
+|      16|SUCCESS| 1|   7|        6| 7|        2|       1000|          2|       17|        17|       1
+|      17|SUCCESS| 1|   0|        6| 0|        2|       1000|          2|       18|        18|       1
+|      18|SUCCESS| 1|   1|        6| 1|        2|       1000|          2|       19|        19|       1
+|      19|SUCCESS| 1|   2|        6| 2|        2|       1000|          2|       20|        20|       1
+|      20|SUCCESS| 1|   3|        6| 3|        2|       1000|          2|       21|        21|       1
+
+
 #### Best Fit Policy with Time shared Simulation
+
+                                         SIMULATION RESULTS
+
+|Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime
+|--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------
+|      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds
+|       1|SUCCESS| 1|   0|        6| 0|        2|      10000|          1|        0|         1|       1
+|       2|SUCCESS| 1|   1|        6| 1|        2|      10000|          1|        0|         1|       1
+|       3|SUCCESS| 1|   2|        6| 2|        2|      10000|          1|        0|         1|       1
+|       4|SUCCESS| 1|   3|        6| 3|        2|      10000|          1|        0|         1|       1
+|       5|SUCCESS| 1|   4|        6| 4|        2|      10000|          1|        0|         1|       1
