@@ -127,7 +127,7 @@ object CloudSimUtils {
     val hostList = new util.ArrayList[Host](hostNumber)
 
     (1 to hostNumber).map(hostNum => hostList.add(createHost(simulationName)))
-    val networkdataCenter: Datacenter = new NetworkDatacenter(cloudSim, hostList, vmPolicy)
+    val networkdataCenter: NetworkDatacenter = new NetworkDatacenter(cloudSim, hostList, vmPolicy)
     if (Cost) {
       logger.info("Set Network DataCenter Characteristics")
       networkdataCenter.getCharacteristics
@@ -138,6 +138,7 @@ object CloudSimUtils {
         .setCostPerStorage(config.getDouble("cloudSimulator." + simulationName + ".datacenter.costPerStorage"))
         .setCostPerMem(config.getDouble("cloudSimulator." + simulationName + ".datacenter.costPerMem"))
         .setCostPerSecond(config.getDouble("cloudSimulator." + simulationName + ".datacenter.cost"))
+      createNetwork(networkdataCenter, cloudSim)
     }
 
     return networkdataCenter
@@ -212,6 +213,39 @@ object CloudSimUtils {
     logger.info(s"$datacenter mapped to 0")
     networkTopology.mapNode(datacenterBroker, 2)
     logger.info(s"$datacenter mapped to 2")
+  }
+
+  /**
+   * Create a network with the required rootswitch, aggregate switch and edge switches .
+   * @param datacenter : Pass the datacenter for which network has to be created
+   * @param simulation : Pass the simulation
+   */
+
+  def createNetwork(datacenter: NetworkDatacenter, simulation: CloudSim): Unit ={
+
+    val rootSwitches: RootSwitch = new RootSwitch(simulation, datacenter)
+
+    val aggregateSwitches = (0 until config.getInt("cloudSimulator.aggregateSwitches")).map {
+      _ => val aggregateSwitch = new AggregateSwitch(simulation, datacenter)
+        datacenter.addSwitch(aggregateSwitch)
+        aggregateSwitch.getUplinkSwitches.add(rootSwitches)
+        rootSwitches.getDownlinkSwitches.add(aggregateSwitch)
+        aggregateSwitch
+    }
+
+    val edgeSwitches = (0 until config.getInt("cloudSimulator.edgeSwitches")).map {
+
+        value => val edgeSwitch = new EdgeSwitch(simulation, datacenter)
+        datacenter.addSwitch(edgeSwitch)
+        edgeSwitch.getUplinkSwitches.add(aggregateSwitches(value / AggregateSwitch.PORTS))
+        aggregateSwitches(value / AggregateSwitch.PORTS).getDownlinkSwitches.add(edgeSwitch)
+        edgeSwitch
+    }
+
+    datacenter.getHostList[NetworkHost].asScala.foreach { host =>
+      val switchNum = Math.round(host.getId % Integer.MAX_VALUE / EdgeSwitch.PORTS)
+      edgeSwitches(switchNum).connectHost(host)
+    }
   }
 
   /**
