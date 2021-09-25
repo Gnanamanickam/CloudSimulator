@@ -22,6 +22,7 @@ import org.cloudbus.cloudsim.datacenters.network.NetworkDatacenter
 import org.cloudbus.cloudsim.distributions.ContinuousDistribution
 import org.cloudbus.cloudsim.hosts.network.NetworkHost
 import org.cloudbus.cloudsim.network.switches.{AbstractSwitch, AggregateSwitch, EdgeSwitch, RootSwitch, Switch}
+import org.cloudsimplus.listeners.EventInfo
 
 import java.io.{FileWriter, InputStreamReader, InvalidClassException}
 import java.text.DecimalFormat
@@ -184,7 +185,7 @@ object CloudSimUtils {
     logger.info("Creating Cloudlets")
     val hostCloudlets = config.getInt("cloudSimulator." + simulationName + ".cloudlet.HostCloudlets")
     val utilization: UtilizationModel  = if(utilizationDynamic == true)
-      new UtilizationModelDynamic(config.getInt("cloudSimulator." + simulationName + ".cloudlet.utilizationPercent"))
+      new UtilizationModelDynamic(config.getDouble("cloudSimulator." + simulationName + ".cloudlet.utilizationPercent"))
     else
       new UtilizationModelFull
     val Cloudlet_Length = config.getInt("cloudSimulator." + simulationName + ".cloudlet.cloudletLength")

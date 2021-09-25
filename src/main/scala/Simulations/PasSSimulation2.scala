@@ -44,8 +44,8 @@ object PaaSSimulation2:
     logger.info("Creating Datacenter2")
     val datacenter: Datacenter = CloudSimUtils.createDatacenter("PaaSSimulation2", simulation, true, vmPolicyBestFit)
     val broker: DatacenterBroker = new DatacenterBrokerSimple(simulation)
-    val vmList: List[Vm] = CloudSimUtils.createVirtualMachine("PaaSSimulation2", cloudletSpaceScheduler)
-    val cloudletList: List[Cloudlet] = CloudSimUtils.createCloudlets("PaaSSimulation2", false)
+    val vmList: List[Vm] = CloudSimUtils.createVirtualMachine("PaaSSimulation2", cloudletTimeScheduler)
+    val cloudletList: List[Cloudlet] = CloudSimUtils.createCloudlets("PaaSSimulation2", true)
     broker.submitVmList(vmList.asJava)
     broker.submitCloudletList(cloudletList.asJava)
     // Netwotk Topology implementation

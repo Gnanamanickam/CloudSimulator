@@ -8,7 +8,7 @@ import org.cloudbus.cloudsim.brokers.{DatacenterBroker, DatacenterBrokerSimple}
 import org.cloudbus.cloudsim.cloudlets.Cloudlet
 import org.cloudbus.cloudsim.core.CloudSim
 import org.cloudbus.cloudsim.datacenters.Datacenter
-import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerTimeShared
+import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared
 import org.cloudbus.cloudsim.utilizationmodels.{UtilizationModel, UtilizationModelDynamic, UtilizationModelFull, UtilizationModelStochastic}
 import org.cloudbus.cloudsim.vms.Vm
 import org.cloudsimplus.builders.tables.CloudletsTableBuilder
@@ -37,7 +37,7 @@ object SaaSSimulation:
     logger.info("Allocation First Fit Policy to the datacenter")
     val vmPolicy = new VmAllocationPolicyFirstFit()
     logger.info("Using Time shared scheduler")
-    val cloudletScheduler = new CloudletSchedulerTimeShared()
+    val cloudletScheduler = new CloudletSchedulerSpaceShared()
     val datacenter: Datacenter = CloudSimUtils.createDatacenter("SaaSSimulation", simulation, false, vmPolicy)
     val broker: DatacenterBroker = new DatacenterBrokerSimple(simulation)
     val vmList: List[Vm] = CloudSimUtils.createVirtualMachine("SaaSSimulation", cloudletScheduler)

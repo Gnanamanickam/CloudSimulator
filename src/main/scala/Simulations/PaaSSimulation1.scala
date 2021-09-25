@@ -43,7 +43,7 @@ object PaaSSimulation1:
     val datacenter: Datacenter = CloudSimUtils.createDatacenter("PaaSSimulation1", simulation, true, vmPolicyFirstFit)
     val broker: DatacenterBroker = new DatacenterBrokerSimple(simulation)
     val vmList: List[Vm] = CloudSimUtils.createVirtualMachine("PaaSSimulation1", cloudletTimeScheduler)
-    val cloudletList: List[Cloudlet] = CloudSimUtils.createCloudlets("PaaSSimulation1", false)
+    val cloudletList: List[Cloudlet] = CloudSimUtils.createCloudlets("PaaSSimulation1", true)
     broker.submitVmList(vmList.asJava)
     broker.submitCloudletList(cloudletList.asJava)
     Thread.sleep(1000)

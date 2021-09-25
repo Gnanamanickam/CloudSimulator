@@ -1,6 +1,6 @@
 import Simulations.Simulations.PaaSSimulation2
 import Utils.{CreateLogger, ObtainConfigReference}
-import Simulations.{FirstFitWithTimeScheduledSimulation, IaaSSimulation, PaaSSimulation1, RoundRobinWithSpaceScheduledSimulation, SaaSSimulation}
+import Simulations.{BestFitWithTimeScheduledSimulation, IaaSSimulation, PaaSSimulation1, RoundRobinWithSpaceScheduledSimulation, SaaSSimulation}
 import com.typesafe.config.ConfigFactory
 import org.cloudbus.cloudsim.core.Simulation
 import org.slf4j.LoggerFactory
@@ -16,9 +16,9 @@ object Simulation:
 
 //    IaaSSimulation.Start()
 //    PaaSSimulation1.Start()
-    PaaSSimulation2.Start()
+//    PaaSSimulation2.Start()
 //    RoundRobinWithSpaceScheduledSimulation.Start()
-//    FirstFitWithTimeScheduledSimulation.Start()
+    BestFitWithTimeScheduledSimulation.Start()
 //    SaaSSimulation.Start()
 
 
@@ -29,7 +29,7 @@ object Simulation:
 //      case 2 => new PaaSSimulation1
 //      case 3 => new PaaSSimulation2
 //      case 4 => new RoundRobinWithSpaceScheduledSimulation
-//      case 5 => new FirstFitWithTimeScheduledSimulation
+//      case 5 => new BestFitWithTimeScheduledSimulation
 //      case 6 => new SaaSSimulation
 //    }
 

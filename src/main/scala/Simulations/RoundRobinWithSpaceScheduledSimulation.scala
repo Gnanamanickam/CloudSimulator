@@ -10,9 +10,10 @@ import org.cloudbus.cloudsim.brokers.{DatacenterBroker, DatacenterBrokerSimple}
 import org.cloudbus.cloudsim.cloudlets.Cloudlet
 import org.cloudbus.cloudsim.core.CloudSim
 import org.cloudbus.cloudsim.datacenters.Datacenter
-import org.cloudbus.cloudsim.schedulers.cloudlet.CloudletSchedulerSpaceShared
+import org.cloudbus.cloudsim.schedulers.cloudlet.{CloudletSchedulerSpaceShared, CloudletSchedulerTimeShared}
 import org.cloudbus.cloudsim.vms.Vm
 import org.cloudsimplus.builders.tables.CloudletsTableBuilder
+import org.cloudsimplus.listeners.EventInfo
 
 import scala.collection.JavaConverters.*
 
@@ -42,9 +43,16 @@ object RoundRobinWithSpaceScheduledSimulation:
     logger.info("Using Space shared scheduler")
     val cloudletScheduler = new CloudletSchedulerSpaceShared()
     val datacenter: Datacenter = CloudSimUtils.createDatacenter("RoundRobinSimulation", simulation, false, vmPolicy)
+    datacenter.setSchedulingInterval(config.getLong("cloudSimulator.RoundRobinSimulation.scheduleInterval"))
     val broker: DatacenterBroker = new DatacenterBrokerSimple(simulation)
     val vmList: List[Vm] = CloudSimUtils.createVirtualMachine("RoundRobinSimulation", cloudletScheduler)
-    val cloudletList: List[Cloudlet] = CloudSimUtils.createCloudlets("RoundRobinSimulation", true)
+    val cloudletList: List[Cloudlet] = CloudSimUtils.createCloudlets("RoundRobinSimulation", false)
+    def onClockTickListener(evt: EventInfo): Unit = {
+      vmList.foreach((vm: Vm) => System.out.printf("\t\tTime %6.1f: Vm %d CPU Usage: %6.2f%% (%2d vCPUs. Running Cloudlets: #%d). RAM usage: %.2f%% (%d MB)%n",
+        evt.getTime, vm.getId, vm.getCpuPercentUtilization * 100.0, vm.getNumberOfPes, vm.getCloudletScheduler.getCloudletExecList.size,
+        vm.getRam.getPercentUtilization * 100, vm.getRam.getAllocatedResource))
+    }
+    simulation.addOnClockTickListener(onClockTickListener)
     broker.submitVmList(vmList.asJava)
     broker.submitCloudletList(cloudletList.asJava)
     Thread.sleep(1000)
@@ -52,4 +60,8 @@ object RoundRobinWithSpaceScheduledSimulation:
     simulation.start()
     val finishedCloudlets: List[Cloudlet] = broker.getCloudletFinishedList().asScala.toList
     new CloudletsTableBuilder(finishedCloudlets.asJava).build()
+
+
+
+
 
