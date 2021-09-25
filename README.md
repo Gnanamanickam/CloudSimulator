@@ -98,6 +98,14 @@ The capacity and technical capabilities of the datacenter has been changed with 
 
 #### IaaS Simulation
 
+The user has control over the following things with regards to IaaS :
+
+VM and its allocation policy used by the datacenter for VM allocation
+Cloudlets and its utilization model to be used by cloudlet .
+
+i.e : User can vary the VM configurations like Processor, RAM, Bandwidth, 
+and mips to be executed . The user can also change the VM allocation policy .
+
 
                                          SIMULATION RESULTS
 
@@ -114,6 +122,11 @@ The capacity and technical capabilities of the datacenter has been changed with 
 
 
 #### PaaS Simulation
+
+The cloudlets which acts as the service which the user wants to run on the VM
+
+Two simulations with datacenter characteristics has been created to compare the total cost and effectiveness of the cloud provider .
+The cloudlet acts as the software application/web service that the user wants to run on the VM. User chooses the service provider based on the requirements and pricing.
 
 ***PaaS one simulation with datacenter characteristics as follows :***
 
@@ -173,6 +186,11 @@ The capacity and technical capabilities of the datacenter has been changed with 
 
 #### SaaS Simulation
 
+The user only invokes this application and has no control over other specification. 
+It provides the functionality of simulating data centre as a software service provider. 
+The user can specify the service name whose instance will be taken care by the
+cloud provider. i.e : The cloud provider creates VM and then run the service on it .
+
                                          SIMULATION RESULTS
 
 |Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime
@@ -188,7 +206,11 @@ The capacity and technical capabilities of the datacenter has been changed with 
 |       8|SUCCESS| 1|   1|        2| 7|        2|       1000|          2|        3|         3|       0
 |       9|SUCCESS| 1|   2|        2| 8|        2|       1000|          2|        3|         4|       0
 |      10|SUCCESS| 1|   2|        2| 9|        2|       1000|          2|        4|         4|       0
+
 #### Round Robin with Space Shared Simulation
+
+Round-robin scheduling allocates each task an equal share of the CPU time. The tasks are assigned in a circular queue and cpu time expires when task is allocated .
+In this simulation space shared cloudlet scheduler is used along with round robin VM allocation policy and then performance of the cloud environment has been checked .
 
                                          SIMULATION RESULTS
 
@@ -219,7 +241,9 @@ The capacity and technical capabilities of the datacenter has been changed with 
 
 #### Best Fit Policy with Time shared Simulation
 
-                                         SIMULATION RESULTS
+The best Fit vm allocation policy is used when energy availablity is minimum . It gives the best energy efficient VM allocation policy out of the all available VM allocation policies .
+                  
+                       SIMULATION RESULTS
 
 |Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime
 |--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------

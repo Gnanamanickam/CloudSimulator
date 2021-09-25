@@ -16,7 +16,7 @@ import org.cloudsimplus.builders.tables.CloudletsTableBuilder
 import scala.collection.JavaConverters.*
 
 /**
-This class executes IaaS simulation using CloudSim framework
+This class executes SaaS simulation using CloudSim framework
 The user only invokes this application and has no control over other specification
  **/
 
