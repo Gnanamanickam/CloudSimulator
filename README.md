@@ -96,3 +96,24 @@ The capacity and technical capabilities of the datacenter has been changed with 
 
 ## Observations
 
+#### IaaS Simulation
+
+
+                                         SIMULATION RESULTS
+
+|Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime
+|--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------
+|      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds
+|       1|SUCCESS| 1|   0|        4| 0|        2|        500|          1|        0|         1|       1
+|       2|SUCCESS| 1|   1|        4| 1|        2|        500|          1|        0|         1|       1
+|       3|SUCCESS| 1|   2|        4| 2|        2|        500|          1|        0|         1|       1
+|       4|SUCCESS| 1|   3|        4| 3|        2|        500|          1|        0|       156|     155
+|       5|SUCCESS| 1|   4|        4| 4|        2|        500|          1|        0|       156|     155
+|       6|SUCCESS| 1|   0|        4| 0|        2|        500|          1|        0|       156|     155
+|       7|SUCCESS| 1|   1|        4| 1|        2|        500|          1|        0|       156|     155
+
+
+#### PaaS Simulation
+#### SaaS Simulation
+#### Round Robin with Space Shared Simulation
+#### Best Fit Policy with Time shared Simulation
