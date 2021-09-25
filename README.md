@@ -239,6 +239,13 @@ In this simulation space shared cloudlet scheduler is used along with round robi
 |      20|SUCCESS| 1|   3|        6| 3|        2|       1000|          2|       21|        21|       1
 
 
+		Time 21.89: Vm 5 CPU Usage: 100.00% Cloudlet: #1 CPU :  2   RAM usage: 100.00% (8000 MB)
+		Time 21.89: Vm 6 CPU Usage: 100.00% Cloudlet: #1 CPU :  2   RAM usage: 100.00% (8000 MB)
+		Time 21.89: Vm 7 CPU Usage: 100.00% Cloudlet: #1 CPU :  2   RAM usage: 100.00% (8000 MB)
+21:02:43.349 [main] INFO  DatacenterBroker - 22.00: DatacenterBrokerSimple2: Cloudlet 20 finished in Vm 3 and returned to broker.
+
+The above shows the Round Robin Execution amounts for 100% of CPU and RAM usage
+
 #### Best Fit Policy with Time shared Simulation
 
 The best Fit vm allocation policy is used when energy availablity is minimum . It gives the best energy efficient VM allocation policy out of the all available VM allocation policies .
@@ -258,3 +265,10 @@ The best Fit vm allocation policy is used when energy availablity is minimum . I
 |       8|SUCCESS| 1|   2|        6| 2|        2|      10000|          1|        0|       159|     159
 |       9|SUCCESS| 1|   3|        6| 3|        2|      10000|          1|        0|       159|     159
 |      10|SUCCESS| 1|   4|        6| 4|        2|      10000|          1|        0|       159|     159
+
+
+		Time 158.98: Vm 2 CPU Usage:  0.00% Cloudlet: #0 CPU :  2   RAM usage: 100.00% (8000 MB)
+		Time 158.98: Vm 3 CPU Usage:  0.00% Cloudlet: #0 CPU :  2   RAM usage: 100.00% (8000 MB)
+		Time 158.98: Vm 4 CPU Usage:  0.00% Cloudlet: #0 CPU :  2   RAM usage: 90.00% (7200 MB)
+21:04:34.537 [main] INFO  CloudSim - 461168759.36: Processing last events before simulation shutdown.
+

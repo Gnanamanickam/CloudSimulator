@@ -48,8 +48,8 @@ object RoundRobinWithSpaceScheduledSimulation:
     val vmList: List[Vm] = CloudSimUtils.createVirtualMachine("RoundRobinSimulation", cloudletScheduler)
     val cloudletList: List[Cloudlet] = CloudSimUtils.createCloudlets("RoundRobinSimulation", false)
     def onClockTickListener(evt: EventInfo): Unit = {
-      vmList.foreach((vm: Vm) => System.out.printf("\t\tTime %6.1f: Vm %d CPU Usage: %6.2f%% (%2d vCPUs. Running Cloudlets: #%d). RAM usage: %.2f%% (%d MB)%n",
-        evt.getTime, vm.getId, vm.getCpuPercentUtilization * 100.0, vm.getNumberOfPes, vm.getCloudletScheduler.getCloudletExecList.size,
+      vmList.foreach((vm: Vm) => System.out.printf("\t\tTime %5.2f: Vm %d CPU Usage: %5.2f%% Cloudlet: #%d CPU : %2d   RAM usage: %.2f%% (%d MB)%n",
+        evt.getTime, vm.getId, vm.getCpuPercentUtilization * 100.0, vm.getCloudletScheduler.getCloudletExecList.size, vm.getNumberOfPes,
         vm.getRam.getPercentUtilization * 100, vm.getRam.getAllocatedResource))
     }
     simulation.addOnClockTickListener(onClockTickListener)

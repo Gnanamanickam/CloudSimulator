@@ -13,6 +13,7 @@ import org.cloudbus.cloudsim.datacenters.Datacenter
 import org.cloudbus.cloudsim.schedulers.cloudlet.{CloudletSchedulerSpaceShared, CloudletSchedulerTimeShared}
 import org.cloudbus.cloudsim.vms.Vm
 import org.cloudsimplus.builders.tables.CloudletsTableBuilder
+import org.cloudsimplus.listeners.EventInfo
 
 import scala.collection.JavaConverters.*
 
@@ -49,6 +50,12 @@ object BestFitWithTimeScheduledSimulation:
     broker.submitCloudletList(cloudletList.asJava)
     Thread.sleep(1000)
     logger.info("Starting the BestFitWithTimeScheduledSimulation")
+    def onClockTickListener(evt: EventInfo): Unit = {
+      vmList.foreach((vm: Vm) => System.out.printf("\t\tTime %5.2f: Vm %d CPU Usage: %5.2f%% Cloudlet: #%d CPU : %2d   RAM usage: %.2f%% (%d MB)%n",
+        evt.getTime, vm.getId, vm.getCpuPercentUtilization * 100.0, vm.getCloudletScheduler.getCloudletExecList.size, vm.getNumberOfPes,
+        vm.getRam.getPercentUtilization * 100, vm.getRam.getAllocatedResource))
+    }
+    simulation.addOnClockTickListener(onClockTickListener)
     simulation.start()
     val finishedCloudlets: List[Cloudlet] = broker.getCloudletFinishedList().asScala.toList
     new CloudletsTableBuilder(finishedCloudlets.asJava).build()
