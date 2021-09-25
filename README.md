@@ -242,14 +242,19 @@ In this simulation space shared cloudlet scheduler is used along with round robi
 #### Best Fit Policy with Time shared Simulation
 
 The best Fit vm allocation policy is used when energy availablity is minimum . It gives the best energy efficient VM allocation policy out of the all available VM allocation policies .
-                  
-                       SIMULATION RESULTS
+
+                                         SIMULATION RESULTS
 
 |Cloudlet|Status |DC|Host|Host PEs |VM|VM PEs   |CloudletLen|CloudletPEs|StartTime|FinishTime|ExecTime
 |--------|-------|--|----|---------|--|---------|-----------|-----------|---------|----------|--------
 |      ID|       |ID|  ID|CPU cores|ID|CPU cores|         MI|  CPU cores|  Seconds|   Seconds| Seconds
-|       1|SUCCESS| 1|   0|        6| 0|        2|      10000|          1|        0|         1|       1
-|       2|SUCCESS| 1|   1|        6| 1|        2|      10000|          1|        0|         1|       1
-|       3|SUCCESS| 1|   2|        6| 2|        2|      10000|          1|        0|         1|       1
-|       4|SUCCESS| 1|   3|        6| 3|        2|      10000|          1|        0|         1|       1
-|       5|SUCCESS| 1|   4|        6| 4|        2|      10000|          1|        0|         1|       1
+|       1|SUCCESS| 1|   0|        6| 0|        2|      10000|          1|        0|         2|       2
+|       2|SUCCESS| 1|   1|        6| 1|        2|      10000|          1|        0|         2|       2
+|       3|SUCCESS| 1|   2|        6| 2|        2|      10000|          1|        0|         2|       2
+|       4|SUCCESS| 1|   3|        6| 3|        2|      10000|          1|        0|       158|     158
+|       5|SUCCESS| 1|   4|        6| 4|        2|      10000|          1|        0|       158|     158
+|       6|SUCCESS| 1|   0|        6| 0|        2|      10000|          1|        0|       158|     158
+|       7|SUCCESS| 1|   1|        6| 1|        2|      10000|          1|        0|       158|     158
+|       8|SUCCESS| 1|   2|        6| 2|        2|      10000|          1|        0|       159|     159
+|       9|SUCCESS| 1|   3|        6| 3|        2|      10000|          1|        0|       159|     159
+|      10|SUCCESS| 1|   4|        6| 4|        2|      10000|          1|        0|       159|     159
