@@ -42,7 +42,7 @@ object BestFitWithTimeScheduledSimulation:
     val vmPolicy = new VmAllocationPolicyBestFit()
     logger.info("Using Space shared scheduler")
     val cloudletScheduler = new CloudletSchedulerTimeShared()
-    val datacenter: Datacenter = CloudSimUtils.createDatacenter("BestFitSimulation", simulation, false, vmPolicy)
+    val datacenter: Datacenter = CloudSimUtils.createNetworkDatacenter("BestFitSimulation", simulation, false, vmPolicy)
     val broker: DatacenterBroker = new DatacenterBrokerSimple(simulation)
     val vmList: List[Vm] = CloudSimUtils.createVirtualMachine("BestFitSimulation", cloudletScheduler)
     val cloudletList: List[Cloudlet] = CloudSimUtils.createCloudlets("BestFitSimulation", true)

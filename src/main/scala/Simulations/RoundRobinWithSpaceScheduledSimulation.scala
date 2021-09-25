@@ -42,7 +42,7 @@ object RoundRobinWithSpaceScheduledSimulation:
     val vmPolicy = new VmAllocationPolicyRoundRobin()
     logger.info("Using Space shared scheduler")
     val cloudletScheduler = new CloudletSchedulerSpaceShared()
-    val datacenter: Datacenter = CloudSimUtils.createDatacenter("RoundRobinSimulation", simulation, false, vmPolicy)
+    val datacenter: Datacenter = CloudSimUtils.createNetworkDatacenter("RoundRobinSimulation", simulation, false, vmPolicy)
     datacenter.setSchedulingInterval(config.getLong("cloudSimulator.RoundRobinSimulation.scheduleInterval"))
     val broker: DatacenterBroker = new DatacenterBrokerSimple(simulation)
     val vmList: List[Vm] = CloudSimUtils.createVirtualMachine("RoundRobinSimulation", cloudletScheduler)
